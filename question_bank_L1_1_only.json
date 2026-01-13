@@ -1,0 +1,57 @@
+{
+  "ontology": {
+    "AI_HISTORY_FOUNDING": {
+      "scope": "Foundational historical facts about AI as a field (e.g., Dartmouth 1956).",
+      "typical_confusion": "Mixing up dates/places (e.g., Stanford 1965) or treating AI as starting with deep learning."
+    },
+    "SYMBOLIC_AI_RULE_BASED": {
+      "scope": "The traditional/symbolic approach to AI (explicit if–then rules from expert knowledge).",
+      "typical_confusion": "Equating traditional AI with modern data-driven deep learning."
+    }
+  },
+  "lectures": [
+    {
+      "lecture_id": "L1_1",
+      "lecture_title": "What are Neural Networks?",
+      "questions": [
+        {
+          "question_id": "L1_1_Q1",
+          "question_type": "single_select",
+          "prompt": "When and where was the field of Artificial Intelligence founded?",
+          "options": {
+            "A": "1965 at Stanford University",
+            "B": "1956 at Dartmouth College",
+            "C": "1980 at MIT Sloan",
+            "D": "2000 at Harvard University"
+          },
+          "correct_options": [
+            "B"
+          ],
+          "concept_tags": [
+            "AI_HISTORY_FOUNDING"
+          ],
+          "explanation": "The field of Artificial Intelligence was formally founded in 1956 at Dartmouth College, when computer science pioneers met to define the field and give it its name."
+        },
+        {
+          "question_id": "L1_1_Q2",
+          "question_type": "single_select",
+          "prompt": "What is the traditional approach to AI described in the lecture?",
+          "options": {
+            "A": "Gather expert knowledge and program it into computers as if-then rules",
+            "B": "Collect large datasets and train statistical models",
+            "C": "Use neural networks with multiple hidden layers",
+            "D": "Generate new data automatically with AI models"
+          },
+          "correct_options": [
+            "A"
+          ],
+          "concept_tags": [
+            "SYMBOLIC_AI_RULE_BASED"
+          ],
+          "explanation": "The lecture describes the traditional approach to AI as interviewing experts, writing down their knowledge in the form of if–then rules, and programming those rules directly into a computer. This rule-based system was a common-sense method in the early years of AI."
+        }
+      ]
+    }
+  ],
+  "assignments": []
+}

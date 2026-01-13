@@ -1,5 +1,18 @@
 {
   "ontology": {
+    "AI_HISTORY_FOUNDING": {
+      "scope": "Foundational historical facts about AI as a field (e.g., Dartmouth 1956).",
+      "typical_confusion": "Mixing up dates/places (e.g., Stanford 1965) or treating AI as starting with deep learning."
+    },
+    "SYMBOLIC_AI_RULE_BASED": {
+      "scope": "The traditional/symbolic approach to AI (explicit if–then rules from expert knowledge).",
+      "typical_confusion": "Equating traditional AI with modern data-driven deep learning."
+    },
+    "TRANSFORMERS_FOUNDATION_MODELS": {
+      "scope": "Transformers as the key architecture behind modern generative AI / foundation models (LLMs).",
+      "typical_confusion": "Attributing generative AI primarily to CNNs or classical ML like trees/KNN."
+    },
+
     "DATA_TYPE_STRUCTURED_VS_UNSTRUCTURED": {
       "scope": "Distinguishing structured (tabular, fixed schema) vs unstructured (audio, image, text) data and what deep learning can process directly.",
       "typical_confusion": "Thinking SQL tables or spreadsheets are unstructured because they are large."
@@ -57,6 +70,7 @@
       "typical_confusion": "Misreading magnitudes or signs when comparing metrics."
     }
   },
+
   "lectures": [
     {
       "lecture_id": "L1_1",
@@ -73,6 +87,7 @@
             "D": "2000 at Harvard University"
           },
           "correct_options": ["B"],
+          "concept_tags": ["AI_HISTORY_FOUNDING"],
           "explanation": "The field of Artificial Intelligence was formally founded in 1956 at Dartmouth College, when computer science pioneers met to define the field and give it its name."
         },
         {
@@ -86,6 +101,7 @@
             "D": "Generate new data automatically with AI models"
           },
           "correct_options": ["A"],
+          "concept_tags": ["SYMBOLIC_AI_RULE_BASED"],
           "explanation": "The lecture describes the traditional approach to AI as interviewing experts, writing down their knowledge in the form of if–then rules, and programming those rules directly into a computer. This rule-based system was a common-sense method in the early years of AI."
         }
       ]
@@ -105,6 +121,7 @@
             "D": "A set of numeric temperature readings"
           },
           "correct_options": ["B"],
+          "concept_tags": ["DATA_TYPE_STRUCTURED_VS_UNSTRUCTURED"],
           "explanation": "Deep learning is particularly well-suited for unstructured data types like audio, text, and images, which don’t fit neatly into tabular formats."
         }
       ]
@@ -124,7 +141,8 @@
             "D": "KNNs"
           },
           "correct_options": ["B"],
-          "explanation": "The Transformer architecture, introduced by Google, is the core model behind modern generative AI, enabling creation of unstructured outputs like text, images, and music."
+          "concept_tags": ["TRANSFORMERS_FOUNDATION_MODELS"],
+          "explanation": "The Transformer architecture is the core model behind modern generative AI, enabling creation of unstructured outputs like text, images, and more."
         }
       ]
     },
@@ -143,7 +161,8 @@
             "D": "Support vector machines"
           },
           "correct_options": ["B"],
-          "explanation": "The transcript begins by revisiting **logistic regression** as a familiar statistical model. The instructor then rewrites it as a network of nodes and connections, showing how this perspective leads naturally into understanding neural networks."
+          "concept_tags": ["ARCHITECTURE_COMPONENTS_LAYER_ROLES"],
+          "explanation": "The lecture starts from logistic regression and reframes it as a simple network of nodes and connections, motivating how neural networks generalize this idea."
         }
       ]
     },
@@ -162,7 +181,8 @@
             "D": "A set of prewritten functions for spreadsheet software"
           },
           "correct_options": ["B"],
-          "explanation": "The transcript begins by revisiting **logistic regression** as a familiar statistical model. The instructor then rewrites it as a network of nodes and connections, showing how this perspective leads naturally into understanding neural networks."
+          "concept_tags": ["ARCHITECTURE_COMPONENTS_LAYER_ROLES"],
+          "explanation": "Deep learning is a subset of machine learning based on multi-layer neural networks that learn representations from data."
         },
         {
           "question_id": "L2_2_Q2",
@@ -175,7 +195,8 @@
             "D": "It is designed to only work on tabular data"
           },
           "correct_options": ["C"],
-          "explanation": "A major benefit of deep learning is its ability to learn hierarchical representations directly from raw data, reducing the need for manual feature extraction."
+          "concept_tags": ["ARCHITECTURE_COMPONENTS_LAYER_ROLES"],
+          "explanation": "Deep learning can learn hierarchical features directly from raw inputs, reducing the need for manual feature engineering."
         }
       ]
     },
@@ -194,7 +215,8 @@
             "D": "Softmax"
           },
           "correct_options": ["B"],
-          "explanation": "The instructor explains that while many activation functions exist, **ReLU** is strongly recommended as the default choice because it has consistently proven powerful in building effective networks and is widely used by practitioners."
+          "concept_tags": ["ACTIVATION_FUNCTION_CHOICES"],
+          "explanation": "ReLU is commonly recommended as a default hidden-layer activation because it performs well in practice and is widely used."
         }
       ]
     },
@@ -213,7 +235,8 @@
             "D": "100"
           },
           "correct_options": ["B"],
-          "explanation": "The original Cleveland Clinic dataset contained 13 features such as age, sex, cholesterol, blood pressure, and chest pain type. However, categorical features like chest pain type cannot be used directly in a neural network. To handle these, one-hot encoding is applied, which creates a new binary column for each category (e.g., cp_0, cp_1, cp_2, cp_3). This expansion increases the dimensionality of the input space. After encoding all categorical variables, the total number of input features rises to **29**. These 29 inputs are then fed into the input layer of the neural network."
+          "concept_tags": ["ARCHITECTURE_COMPONENTS_LAYER_ROLES"],
+          "explanation": "One-hot encoding expands categorical variables into multiple binary columns, increasing the total feature count to 29."
         }
       ]
     },
@@ -232,7 +255,8 @@
             "D": "Linear"
           },
           "correct_options": ["B"],
-          "explanation": "The heart disease prediction task is a **binary classification** problem, where the outcome is either 'heart disease' or 'no heart disease'. In binary classification, the model’s output must be interpretable as a probability.\n\nThe **sigmoid activation function** is used because it maps any real-valued input to the range (0, 1), which can be directly interpreted as a probability. In Keras, this corresponds to using `Dense(1, activation='sigmoid')` in the output layer.\n\n**Why not the other options?**\n\n- **ReLU** outputs values greater than or equal to 0 with no upper bound, so its outputs are not valid probabilities.\n- **Tanh** outputs values in the range (−1, 1), which does not align with a probability scale.\n- **Linear** activation produces unrestricted real-valued outputs, which cannot be interpreted probabilistically.\n\nTherefore, the sigmoid activation function is the correct and standard choice for the output layer in binary classification tasks."
+          "concept_tags": ["ACTIVATION_FUNCTION_CHOICES", "LOSS_FUNCTION_MATCHING_TASK"],
+          "explanation": "For binary classification, the output is a probability in (0,1), so sigmoid is standard; this pairs naturally with binary cross-entropy."
         }
       ]
     },
@@ -251,7 +275,8 @@
             "D": "Categorical cross-entropy"
           },
           "correct_options": ["B"],
-          "explanation": "Loss functions must align with the type of prediction the model produces. In **binary classification**, the model outputs probabilities between 0 and 1. The standard and most appropriate loss function in this setting is **binary cross-entropy**.\n\nBinary cross-entropy measures the difference between the predicted probability and the true binary label, penalizing incorrect predictions more heavily when the model is highly confident. For example, predicting 0.99 when the true label is 0 results in a very large loss. This encourages the model not only to predict the correct class, but also to assign well-calibrated probabilities.\n\n**Why not the other options?**\n\n- **Mean squared error (MSE)** is primarily designed for regression tasks. When used with probability outputs, it yields weaker gradients near 0 and 1, leading to slower and less stable learning.\n- **Hinge loss** is commonly used for margin-based classifiers such as support vector machines (SVMs) and does not operate on probabilistic outputs.\n- **Categorical cross-entropy** is intended for multi-class classification problems with more than two classes, not binary outcomes.\n\nTherefore, **binary cross-entropy** is the correct and standard loss function for training neural networks on binary classification tasks."
+          "concept_tags": ["LOSS_FUNCTION_MATCHING_TASK"],
+          "explanation": "Binary cross-entropy is the standard loss for probabilistic binary classification outputs."
         }
       ]
     },
@@ -270,7 +295,8 @@
             "D": "The correct batch size to use"
           },
           "correct_options": ["B"],
-          "explanation": "In gradient descent, the derivative (or slope) of the loss function with respect to each model parameter indicates how that parameter should be adjusted to reduce the loss.\n\n- If the derivative is **positive**, the loss increases as the parameter increases, so the parameter should be **decreased**.\n- If the derivative is **negative**, the loss decreases as the parameter increases, so the parameter should be **increased**.\n- If the derivative is **zero**, the parameter is at a stationary point, which may correspond to a local minimum, local maximum, or saddle point.\n\nBy repeatedly updating parameters in the direction opposite to the gradient, the model iteratively moves closer to a minimum of the loss function.\n\n**Why not the other options?**\n\n- The derivative does not provide the **exact location of the minimum**; it only gives local directional information.\n- It does not determine the **number of neurons**, which is a design choice of the neural network architecture.\n- It does not determine the **batch size**, which is a user-defined training hyperparameter.\n\nTherefore, the derivative’s fundamental role in gradient descent is to guide whether to increase or decrease each parameter in order to minimize the loss."
+          "concept_tags": ["GRADIENT_DESCENT_INTUITION"],
+          "explanation": "The gradient provides local directional information (increase/decrease) for updating parameters to reduce loss."
         }
       ]
     },
@@ -289,7 +315,8 @@
             "D": "It chooses which loss function to use"
           },
           "correct_options": ["B"],
-          "explanation": "The learning rate (alpha) determines the size of the step taken when updating weights during gradient descent. A small learning rate ensures gradual, stable updates, while a large one can cause overshooting or instability. It does not control layers, epochs, or the loss function."
+          "concept_tags": ["GRADIENT_DESCENT_INTUITION"],
+          "explanation": "The learning rate controls the step size of parameter updates during optimization."
         }
       ]
     },
@@ -308,7 +335,8 @@
             "D": "Clustering"
           },
           "correct_options": ["B"],
-          "explanation": "**Backpropagation** is the method that efficiently calculates gradients by applying the chain rule of calculus in reverse, layer by layer, from the output back to the input. This allows neural networks with millions of parameters to be trained efficiently, especially when combined with GPUs."
+          "concept_tags": ["GRADIENT_DESCENT_INTUITION"],
+          "explanation": "Backpropagation efficiently computes gradients using the chain rule through the network."
         }
       ]
     },
@@ -327,11 +355,13 @@
             "D": "A fold"
           },
           "correct_options": ["B"],
-          "explanation": "A full pass through the training dataset is called an **epoch**. During an epoch, the data are divided into batches, and weights are updated batch by batch. Training usually requires multiple epochs. Monitoring validation loss across epochs also helps prevent overfitting through methods like early stopping."
+          "concept_tags": ["EPOCH_BATCH_TERMS"],
+          "explanation": "An epoch is one full pass through the training dataset (typically via many mini-batches)."
         }
       ]
     }
   ],
+
   "assignments": [
     {
       "assignment_id": "A1",
@@ -352,12 +382,13 @@
                 "D": "It guarantees that the model will not require any regularization"
               },
               "correct_options": ["B"],
-              "explanation": "Standardization makes each feature contribute more equally to the optimization process. While it often results in faster convergence and better performance, it does not guarantee perfect accuracy or remove the need for regularization."
+              "concept_tags": ["STANDARDIZATION_WHAT_AND_WHY"],
+              "explanation": "Standardization helps optimization by putting features on comparable scales; it does not guarantee accuracy or remove the need for regularization."
             },
             {
               "question_id": "A1_P1_Q2",
               "question_type": "single_select",
-              "prompt": "How big is our training set and test set? You can use the code output in the notebook to determine the training set size and compute the test set size from the test_split ratio. Note that by 'how big', we mean the number of rows in the training and test sets.",
+              "prompt": "How big is our training set and test set? You can use the code output in the notebook to determine the training set size and compute the test set size from the test_split ratio.",
               "options": {
                 "A": "Training size: 16,512; test size: 4,128",
                 "B": "Training size: 16,512; test size: 20,640",
@@ -365,20 +396,22 @@
                 "D": "Training size: 20,640; test size: 16,512"
               },
               "correct_options": ["A"],
-              "explanation": "From the code output, we see that the training set size is 16,512. Since the test_split ratio is 0.2 (20%), the test set is 20% of the full data and the training set if 80% of the full data. We can compute the test set size by taking the training set size, dividing by 80% and multiplying by 20%. This is also equivalent to dividing the training set size by 4. This gives us a test set size of 4,128."
+              "concept_tags": ["DATA_SPLITS_TRAIN_VAL_TEST"],
+              "explanation": "With test_split=0.2, training is 80% and test is 20% of the full dataset, so test size is training_size/4."
             },
             {
               "question_id": "A1_P1_Q3",
               "question_type": "single_select",
-              "prompt": "Why is the mean and standard deviation of the standardized test set close to 0 and 1, respectively, but not exactly 0 and 1? Remember that scaling is always fit on the training set, not on the test set.",
+              "prompt": "Why is the mean and standard deviation of the standardized test set close to 0 and 1, respectively, but not exactly 0 and 1?",
               "options": {
-                "A": "The scaling parameters (mean and standard deviation) are computed from the training set, the test set is transformed using those same values; since the test set has a different distribution from the training set, its standardized values will only be approximately mean 0 and standard deviation 1, but not exactly",
-                "B": "There was an error in the standardization code and the transformation was applied incorrectly",
-                "C": "Standardization can never produce values close to 0 and 1, regardless of whether the train and test sets come from the same distribution",
-                "D": "The standard deviation of the training set is always forced to be exactly 0, which changes the scaling for the test set"
+                "A": "Scaler fit on training set; test transformed using training stats; test distribution differs slightly so mean/std aren’t exactly 0/1",
+                "B": "There was an error in the standardization code",
+                "C": "Standardization can never produce values close to 0 and 1",
+                "D": "The training set std is forced to be exactly 0"
               },
               "correct_options": ["A"],
-              "explanation": "We fit the scaler on the training data to avoid information leakage. This means the test set gets transformed using the training set’s mean and standard deviation, so its resulting mean and std will usually be close to but not exactly 0 and 1. Note that since the training set and test set come from the same dataset distribution, the training and test set mean and standard deviation are typically similar (unless the dataset is unusually small or the split is unusually unlucky)."
+              "concept_tags": ["DATA_LEAKAGE_TRAIN_VS_TEST"],
+              "explanation": "We fit scaling on training only to prevent leakage; test is transformed using training statistics, so it’s only approximately standardized."
             }
           ]
         },
@@ -397,7 +430,8 @@
                 "D": "To normalize the input data"
               },
               "correct_options": ["B"],
-              "explanation": "'validation_split' takes a percentage of the training data and sets it aside for validation during training. This allows you to see how the model performs on unseen data at each epoch without touching the test set."
+              "concept_tags": ["DATA_SPLITS_TRAIN_VAL_TEST"],
+              "explanation": "validation_split reserves part of the training data to evaluate generalization during training without touching the test set."
             },
             {
               "question_id": "A1_P2_Q2",
@@ -410,7 +444,8 @@
                 "D": "35,265,150,976"
               },
               "correct_options": ["A"],
-              "explanation": "The final validation loss for the tuned model is taken from the last recorded epoch in the training history, which is 34,941,157,376. The other values correspond to the test set MSE, the final training loss, and the second-to-last epoch validation loss, respectively."
+              "concept_tags": ["DATA_SPLITS_TRAIN_VAL_TEST"],
+              "explanation": "This is reading the final validation loss value from the training history (last epoch)."
             }
           ]
         },
@@ -421,41 +456,44 @@
             {
               "question_id": "A1_P3_Q1",
               "question_type": "single_select",
-              "prompt": "If we increase the number of units in the second hidden layer of Model 2 from 16 to 32, which of the following changes would occur in the total number of trainable parameters?",
+              "prompt": "If we increase the number of units in the second hidden layer of Model 2 from 16 to 32, which change occurs in total trainable parameters?",
               "options": {
-                "A": "The total parameters would stay the same",
-                "B": "The total parameters would increase",
-                "C": "The total parameters would decrease",
-                "D": "The total parameters would become zero"
+                "A": "Stay the same",
+                "B": "Increase",
+                "C": "Decrease",
+                "D": "Become zero"
               },
               "correct_options": ["B"],
-              "explanation": "When you increase the number of units in a hidden layer, the number of incoming and outgoing connections changes, which increases the total number of trainable weights and biases in the model."
+              "concept_tags": ["PARAMETER_COUNTING_DENSE"],
+              "explanation": "More units means more weights and biases, increasing trainable parameters."
             },
             {
               "question_id": "A1_P3_Q2",
               "question_type": "numeric_input",
-              "prompt": "If we did as described in Question 2.1, how many trainable parameters would the second hidden layer have? You can use the parameter formula previously mentioned in the notebook to compute this.",
+              "prompt": "If we did as described in Question 2.1, how many trainable parameters would the second hidden layer have?",
               "correct_answer": 544,
               "tolerance": 0,
-              "explanation": "Our updated second Dense hidden layer would now have 32 neurons and ReLU activation function. Because the previous layer produces a vector of length 16, the input dimension to this second layer is 16. Our seocnd Dense layer has 32 neurons and therefore 32 outputs, and it learns a weight for every connection from each of these 16 inputs to each of the 32 outputs. This means that there are 16x32 weights in this second layer. Each of the 32 neurons in the second layer also has its own bias term, so there are 32 biases. In total, the number of parameters in this second hidden layer is 16*32 + 32 = 544. We can also compute the 544 trainable parameters using the parameter formula from above."
+              "concept_tags": ["PARAMETER_COUNTING_DENSE"],
+              "explanation": "(inputs×units)+bias = (16×32)+32 = 544."
             },
             {
               "question_id": "A1_P3_Q3",
               "question_type": "single_select",
-              "prompt": "Based on the loss curves for Model 1 and Model 2, which statement is most accurate? Note that losses are quite large, so keep in mind the number of digits in the validation losses between Models 1 and 2.",
+              "prompt": "Based on the loss curves for Model 1 and Model 2, which statement is most accurate?",
               "options": {
                 "A": "Model 2 converges faster and reaches a lower validation loss than Model 1",
                 "B": "Model 1 converges faster and reaches a lower validation loss than Model 2",
-                "C": "Both models converge at the same rate and reach identical final validation losses",
-                "D": "Model 2 shows severe overfitting compared to Model 1, with a much higher final validation loss"
+                "C": "Both converge at the same rate and reach identical final validation losses",
+                "D": "Model 2 shows severe overfitting vs Model 1"
               },
               "correct_options": ["A"],
-              "explanation": "The loss curves show that Model 2’s validation loss drops faster and settles lower than Model 1’s, indicating better convergence and final performance."
+              "concept_tags": ["CURVES_GENERALIZATION_OVERFITTING"],
+              "explanation": "You interpret validation-loss curves to compare convergence and generalization."
             },
             {
               "question_id": "A1_P3_Q4",
               "question_type": "single_select",
-              "prompt": "What is the percentage improvement in Model 2’s performance compared to Model 1 based on test MSE? You can use the following formula to compute percentage improvement: ((MSE_model1 − MSE_model2) / MSE_model1) × 100",
+              "prompt": "What is the percentage improvement in Model 2’s performance compared to Model 1 based on test MSE?",
               "options": {
                 "A": "86.32%",
                 "B": "-86.32%",
@@ -463,7 +501,8 @@
                 "D": "0.8632%"
               },
               "correct_options": ["A"],
-              "explanation": "The improvement percentage is calculated by finding the difference between Model 1’s and Model 2’s MSE, dividing by Model 1’s MSE, and multiplying by 100. This becomes: (34543902720 - 4726463488)/34543902720 x 100, which yields 86.32%, indicating Model 2 performs better."
+              "concept_tags": ["METRICS_MSE_INTERPRETATION"],
+              "explanation": "Compute percent improvement using ((MSE1−MSE2)/MSE1)×100 and interpret magnitude/sign correctly."
             }
           ]
         },
@@ -474,78 +513,85 @@
             {
               "question_id": "A1_P4_Q1",
               "question_type": "single_select",
-              "prompt": "What is the main structural difference in the Skip Connection model compared to the other models in the notebook?",
+              "prompt": "What is the main structural difference in the Skip Connection model compared to the other models?",
               "options": {
-                "A": "It uses convolutional layers instead of dense layers",
-                "B": "It adds the original inputs directly to the hidden layer outputs before the final layer",
-                "C": "It increases the number of units in each hidden layer",
-                "D": "It removes the activation function from the hidden layers"
+                "A": "Uses convolutional layers",
+                "B": "Adds original inputs directly to later computations (skip connection)",
+                "C": "Increases units in each hidden layer",
+                "D": "Removes activation functions"
               },
               "correct_options": ["B"],
-              "explanation": "The skip connection model feeds the original inputs directly into the final layer alongside the hidden layer outputs, which can help preserve and propagate important information."
+              "concept_tags": ["SKIP_CONNECTIONS_RESIDUALS"],
+              "explanation": "Skip connections change information flow by letting earlier representations feed into later layers."
             },
             {
               "question_id": "A1_P4_Q2",
               "question_type": "numeric_input",
-              "prompt": "How many input connections (units) feed into the output layer of our Skip Connection model? You will need to include the connections from both the input layer and the hidden layer. Recall our input layer accepts our housing data, which consist of 8 features.",
+              "prompt": "How many input connections feed into the output layer of our Skip Connection model?",
               "correct_answer": 24,
               "tolerance": 0,
-              "explanation": "The output layer includes input connections from the input layer and the hidden layer. Since there are 8 features from the input layer and 16 from the hidden layer, the number of input connections to the output layer is 8 + 16 = 24."
+              "concept_tags": ["DIMENSION_FLOW_CONCAT_SKIP"],
+              "explanation": "Output receives 8 (inputs) + 16 (hidden) = 24 incoming units."
             },
             {
               "question_id": "A1_P4_Q3",
               "question_type": "numeric_input",
-              "prompt": "How many trainable parameters are associated with the output layer? We can use the parameter formula we learned previously to compute this and the answer to Question 3.2 as 'incoming units to this layer' in the formula. Also recall that the output layer only consists of one neuron.",
+              "prompt": "How many trainable parameters are associated with the output layer?",
               "correct_answer": 25,
               "tolerance": 0,
-              "explanation": "The trainable parameters formula is '(incoming units to this layer * units in this layer) + units in this layer'. From Question 3.2, the incoming units are 24. There is 1 unit in the output layer, so parameters = 24*1 + 1 = 25."
+              "concept_tags": ["PARAMETER_COUNTING_DENSE", "DIMENSION_FLOW_CONCAT_SKIP"],
+              "explanation": "With 24 incoming units and 1 output unit: 24×1 + 1 = 25."
             },
             {
               "question_id": "A1_P4_Q4",
               "question_type": "numeric_input",
-              "prompt": "How many trainable parameters does our Skip Connection model have in total? You can compute this by adding the number of parameters in the hidden layer (compute using the parameter formula) and the number of parameters in the output layer (from the answer to Question 3.3).",
+              "prompt": "How many trainable parameters does our Skip Connection model have in total?",
               "correct_answer": 169,
               "tolerance": 0,
-              "explanation": "Hidden layer parameters: incoming units = 8, units in layer = 16, so 8*16 + 16 = 144. Output layer parameters (from Q3.3) = 25. Total = 144 + 25 = 169."
+              "concept_tags": ["PARAMETER_COUNTING_DENSE", "DIMENSION_FLOW_CONCAT_SKIP"],
+              "explanation": "Hidden: 8×16+16=144; Output: 25; Total 169."
             },
             {
               "question_id": "A1_P4_Q5",
               "question_type": "single_select",
               "prompt": "What pattern in the loss curves best describes the Skip Connection model compared to the others?",
               "options": {
-                "A": "It overfits significantly more than the other models",
-                "B": "It reaches a lower validation loss",
-                "C": "It shows higher variance between epochs"
+                "A": "Overfits significantly more",
+                "B": "Reaches a lower validation loss",
+                "C": "Shows higher variance between epochs"
               },
               "correct_options": ["B"],
-              "explanation": "The Skip Connection model shows the lowest validation loss among the models, indicating it generalizes slightly better without large overfitting. It does not appear to overfit significantly, and there is no concrete evidence (based on the reported outputs) of higher variance between epochs."
+              "concept_tags": ["CURVES_GENERALIZATION_OVERFITTING"],
+              "explanation": "This is interpreting validation-loss curves to compare generalization."
             },
             {
               "question_id": "A1_P4_Q6",
               "question_type": "single_select",
               "prompt": "Which model has achieved the lowest test MSE?",
               "options": {
-                "A": "Single hidden layer model (Model 1)",
-                "B": "Two hidden layers model (Model 2)",
-                "C": "Skip connection model (Model 3)",
-                "D": "None of the above"
+                "A": "Model 1",
+                "B": "Model 2",
+                "C": "Model 3",
+                "D": "None"
               },
               "correct_options": ["B"],
-              "explanation": "Among the reported MSE values, the Two Hidden Layers model achieves the smallest test MSE, meaning its predictions are most accurate on the test data."
+              "concept_tags": ["METRICS_MSE_INTERPRETATION"],
+              "explanation": "Pick the smallest test MSE and interpret it as best test performance."
             },
             {
               "question_id": "A1_P4_Q7",
               "question_type": "single_select",
               "prompt": "Which model appears to have the most clear signs of overfitting?",
               "options": {
-                "A": "Single hidden layer model (Model 1)",
-                "B": "Two hidden layers model (Model 2)",
-                "C": "Skip connection model (Model 3)",
-                "D": "None of the models have clear signs of overfitting",
-                "E": "All of the models have clear signs of overfitting"
+                "A": "Model 1",
+                "B": "Model 2",
+                "C": "Model 3",
+                "D": "None",
+                "E": "All"
               },
               "correct_options": ["D"],
-              "explanation": "Overfitting typically appears when training loss keeps decreasing while validation loss stops improving and begins increasing, creating a widening gap between curves. Here, the training and validation losses stay relatively close and follow similar trends, so none of the models show strong, clear overfitting."
+              "concept_tags": ["CURVES_GENERALIZATION_OVERFITTING"],
+              "explanation": "Overfitting is diagnosed via divergence of training vs validation curves, not just low training loss."
             }
           ]
         }
